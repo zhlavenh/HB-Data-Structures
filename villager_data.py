@@ -15,6 +15,15 @@ def all_species(filename):
 
     # TODO: replace this with your code
 
+    file_name = open(filename, 'r')
+    
+    for line in file_name:
+        villager_info = line.rstrip().split("|")
+        species_name = villager_info[1]
+        species.add(species_name)
+
+    file_name.close()
+
     return species
 
 
@@ -32,7 +41,22 @@ def get_villagers_by_species(filename, search_string="All"):
     villagers = []
 
     # TODO: replace this with your code
+    file_name = open(filename, "r")
 
+    if search_string != "All":
+        for line in file_name:
+            line = line.rstrip().split("|")
+            if search_string == line[1]:
+                name = line[0]
+                villagers.append(name)
+    else:
+        for line in file_name:
+            line = line.rstrip().split("|")
+            name = line[0]
+            villagers.append(name)
+            
+    file_name.close()
+   
     return sorted(villagers)
 
 
@@ -104,3 +128,5 @@ def find_likeminded_villagers(filename, villager_name):
     """
 
     # TODO: replace this with your code
+
+print(get_villagers_by_species("villagers.csv"))
