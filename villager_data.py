@@ -71,8 +71,39 @@ def all_names_by_hobby(filename):
     """
 
     # TODO: replace this with your code
+    hobbies = []
+    fitness = []
+    nature = []
+    education = []
+    music = []
+    fashion = []
+    play = []
 
-    return []
+
+    file_name = open(filename, "r")
+
+    for line in file_name:
+        line = line.rstrip().split("|")
+        hobby = line[3]
+        name = line[0]
+        if hobby == "Fitness":
+            fitness.append(name)
+        elif hobby == "Nature":
+            nature.append(name)
+        elif hobby == "Education":
+            education.append(name)
+        elif hobby == "Music":
+            music.append(name)
+        elif hobby == "Fashion":
+            fashion.append(name)
+        elif hobby == "Play":
+            play.append(name)
+
+
+    hobbies = [sorted(fitness), sorted(nature), sorted(education), 
+                sorted(music), sorted(fashion), sorted(play)]
+
+    return [hobbies]
 
 
 def all_data(filename):
@@ -129,4 +160,4 @@ def find_likeminded_villagers(filename, villager_name):
 
     # TODO: replace this with your code
 
-print(get_villagers_by_species("villagers.csv"))
+print(all_names_by_hobby("villagers.csv"))
