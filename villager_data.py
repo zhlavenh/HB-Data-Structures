@@ -103,7 +103,7 @@ def all_names_by_hobby(filename):
     hobbies = [sorted(fitness), sorted(nature), sorted(education), 
                 sorted(music), sorted(fashion), sorted(play)]
 
-    return [hobbies]
+    return hobbies
 
 
 def all_data(filename):
@@ -122,6 +122,18 @@ def all_data(filename):
     all_data = []
 
     # TODO: replace this with your code
+
+    file_name = open(filename)
+
+    for line in file_name:
+        split_string = line.rstrip().split("|")
+        data_tuple = tuple(split_string)
+        print(data_tuple)
+        print(type(data_tuple))
+            # name = line[0]
+      
+            
+
 
     return all_data
 
@@ -160,4 +172,11 @@ def find_likeminded_villagers(filename, villager_name):
 
     # TODO: replace this with your code
 
-print(all_names_by_hobby("villagers.csv"))
+print(all_data("villagers.csv"))
+
+# pratice = (1, [1, 2, 3])
+
+# print(pratice)
+# print(pratice[1])
+# pratice[1].append(4)
+# print(pratice[1])
