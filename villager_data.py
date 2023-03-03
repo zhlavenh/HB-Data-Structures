@@ -206,4 +206,4 @@ def find_likeminded_villagers(filename, villager_name):
     return same_personality
     
 
-print(find_likeminded_villagers("villagers.csv", "Olivia"))
+# print(find_likeminded_villagers("villagers.csv", "Olivia"))
