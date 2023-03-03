@@ -186,5 +186,24 @@ def find_likeminded_villagers(filename, villager_name):
     """
 
     # TODO: replace this with your code
+    personality_of_villager = None
+    all_data = []
+    file_name = open(filename, "r")
 
-print(find_motto("villagers.csv", "Olivia"))
+
+    for line in file_name:
+
+        line = line.rstrip().split("|")
+        all_data.append(line)
+        
+        if villager_name == (line[0]):
+            personality_of_villager = line[2]
+        
+    file_name.close()
+
+    same_personality = [line[0] for line in all_data if line[2] == personality_of_villager]
+
+    return same_personality
+    
+
+print(find_likeminded_villagers("villagers.csv", "Olivia"))
